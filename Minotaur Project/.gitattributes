@@ -1,0 +1,42 @@
+# Normalize text files to LF in repo, CRLF on Windows checkout
+* text=auto
+
+# Unity and code files — always use LF
+*.cs text eol=lf
+*.shader text eol=lf
+*.cginc text eol=lf
+*.hlsl text eol=lf
+*.compute text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+
+# FMOD macOS plugin bundles
+Assets/Plugins/FMOD/**/*.bundle text eol=lf
+Assets/Plugins/FMOD/**/Info.plist text eol=lf
+
+# Binary files — never modify line endings
+*.dll binary
+*.exe binary
+*.so binary
+*.dylib binary
+*.bundle binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tga binary
+*.fbx binary
+*.prefab binary
+*.unity binary
+*.asset binary
+*.mat binary
+*.psd binary
+*.ttf binary
+*.otf binary
+*.zip binary
+*.rar binary
