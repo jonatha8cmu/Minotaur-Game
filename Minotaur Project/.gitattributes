@@ -1,5 +1,5 @@
 # Normalize text files to LF in repo, CRLF on Windows checkout
-* text=auto
+* text=auto eol=lf
 
 # Unity and code files — always use LF
 *.cs text eol=lf
