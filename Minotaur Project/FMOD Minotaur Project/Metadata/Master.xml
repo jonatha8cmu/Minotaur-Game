@@ -16,6 +16,8 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{d06be98f-71c2-4971-bdde-b05fe0e0cc17}">
 		<relationship name="effects">
+			<destination>{311db8a1-b0b9-46cc-b12b-6c5456fd5adf}</destination>
+			<destination>{f79917f1-38c6-483b-ad31-6820ae1534bb}</destination>
 			<destination>{78a48195-2f30-4cc5-8f36-97af792fd0eb}</destination>
 		</relationship>
 	</object>
@@ -24,5 +26,35 @@
 			<value>2</value>
 		</property>
 	</object>
+	<object class="MultibandEqEffect" id="{311db8a1-b0b9-46cc-b12b-6c5456fd5adf}">
+		<property name="filterTypeB">
+			<value>8</value>
+		</property>
+		<property name="frequencyA">
+			<value>16000</value>
+		</property>
+		<property name="frequencyB">
+			<value>3400</value>
+		</property>
+		<relationship name="automators">
+			<destination>{430f15a6-e981-4d4d-8b7a-e9f636fa98e5}</destination>
+			<destination>{8af6ce41-6916-4278-a9f1-2029dfc2f00e}</destination>
+		</relationship>
+	</object>
+	<object class="ChannelMixEffect" id="{f79917f1-38c6-483b-ad31-6820ae1534bb}">
+		<property name="outputGrouping">
+			<value>4</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{78a48195-2f30-4cc5-8f36-97af792fd0eb}" />
+	<object class="Automator" id="{430f15a6-e981-4d4d-8b7a-e9f636fa98e5}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>frequencyA</value>
+		</property>
+	</object>
+	<object class="Automator" id="{8af6ce41-6916-4278-a9f1-2029dfc2f00e}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gainB</value>
+		</property>
+	</object>
 </objects>

@@ -262,6 +262,88 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &100021140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100021143}
+  - component: {fileID: 100021142}
+  - component: {fileID: 100021141}
+  m_Layer: 0
+  m_Name: test1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &100021141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100021140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e482485b1f5927d4fa0853aceb4f2201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioEmitter
+  eventPath: event:/df
+  playOnEnable: 1
+  occlusionUpdateInterval: 0.15
+  maxOcclusionDistance: 45
+  directionalParam: Directional Occlusion
+  spatialParam: Spatial Occlusion
+  oneShotUpdateDuration: 1
+  logParameterChanges: 1
+--- !u!114 &100021142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100021140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1d277633ee2a346ad8e4b472a352da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OcclusionComponent
+  occlusionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  lateralOffset: 0.75
+  maxDistance: 40
+  recalcInterval: 0.12
+  movementSqrThreshold: 0.05
+  spatialBlocked1: 0.35
+  spatialBlocked2: 0.65
+  spatialBlocked3: 1
+  useFractionalDirectional: 1
+  minBlockedDirectional: 0.15
+  debug: 0
+  directClearColor: {r: 0, g: 1, b: 0, a: 1}
+  directBlockedColor: {r: 1, g: 0, b: 0, a: 1}
+  lateralClearColor: {r: 0, g: 1, b: 1, a: 1}
+  lateralBlockedColor: {r: 1, g: 0.5, b: 0, a: 1}
+--- !u!4 &100021143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100021140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.69, y: -4.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &469369962
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +398,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840696840}
-  - component: {fileID: 840696839}
+  - component: {fileID: 840696842}
+  - component: {fileID: 840696841}
   m_Layer: 0
   m_Name: sound
   m_TagString: Untagged
@@ -324,35 +407,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &840696839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840696838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b9c4324a6c2554992369644d9e59ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioOcclusion
-  fmodEventPath: event:/test
-  emissionMode: 0
-  maxSoundDist: 35
-  maxBounces: 3
-  rayCount: 5
-  coneAngle: 80
-  occlusionLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  playerHitRadius: 4
-  createInstanceOnStart: 1
-  continuousUpdate: 1
-  debugRays: 1
-  debugDuration: 0.1
-  debugClearColor: {r: 0, g: 1, b: 0, a: 1}
-  debugBlockedColor: {r: 1, g: 0, b: 0, a: 1}
-  debugBounceColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!4 &840696840
 Transform:
   m_ObjectHideFlags: 0
@@ -368,6 +422,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &840696841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840696838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e482485b1f5927d4fa0853aceb4f2201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioEmitter
+  eventPath: event:/music test
+  playOnEnable: 1
+  occlusionUpdateInterval: 0.15
+  maxOcclusionDistance: 45
+  directionalParam: Directional Occlusion
+  spatialParam: Spatial Occlusion
+  oneShotUpdateDuration: 0.75
+  logParameterChanges: 0
+--- !u!114 &840696842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840696838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1d277633ee2a346ad8e4b472a352da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OcclusionComponent
+  occlusionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  lateralOffset: 0.75
+  maxDistance: 40
+  recalcInterval: 0.12
+  movementSqrThreshold: 0.05
+  spatialBlocked1: 0.35
+  spatialBlocked2: 0.65
+  spatialBlocked3: 1
+  useFractionalDirectional: 1
+  minBlockedDirectional: 0.15
+  debug: 0
+  directClearColor: {r: 0, g: 1, b: 0, a: 1}
+  directBlockedColor: {r: 1, g: 0, b: 0, a: 1}
+  lateralClearColor: {r: 0, g: 1, b: 1, a: 1}
+  lateralBlockedColor: {r: 1, g: 0.5, b: 0, a: 1}
 --- !u!1 &1260263358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1925,134 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1599106016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599106019}
+  - component: {fileID: 1599106018}
+  - component: {fileID: 1599106017}
+  m_Layer: 0
+  m_Name: wind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1599106017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599106016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e482485b1f5927d4fa0853aceb4f2201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioEmitter
+  eventPath: event:/tts
+  playOnEnable: 1
+  occlusionUpdateInterval: 0.15
+  maxOcclusionDistance: 45
+  directionalParam: Directional Occlusion
+  spatialParam: Spatial Occlusion
+  oneShotUpdateDuration: 1
+  logParameterChanges: 0
+--- !u!114 &1599106018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599106016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1d277633ee2a346ad8e4b472a352da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OcclusionComponent
+  occlusionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  lateralOffset: 0.75
+  maxDistance: 40
+  recalcInterval: 0.12
+  movementSqrThreshold: 0.05
+  spatialBlocked1: 0.35
+  spatialBlocked2: 0.65
+  spatialBlocked3: 1
+  useFractionalDirectional: 1
+  minBlockedDirectional: 0.15
+  debug: 0
+  directClearColor: {r: 0, g: 1, b: 0, a: 1}
+  directBlockedColor: {r: 1, g: 0, b: 0, a: 1}
+  lateralClearColor: {r: 0, g: 1, b: 1, a: 1}
+  lateralBlockedColor: {r: 1, g: 0.5, b: 0, a: 1}
+--- !u!4 &1599106019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599106016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.68797, y: -0.59668, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1727346914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727346916}
+  - component: {fileID: 1727346915}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1727346915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727346914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99a309e59a1f424998c3fe295ccd862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  logSoundPlayback: 0
+  showActiveInstances: 0
+--- !u!4 &1727346916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727346914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1830,3 +2061,6 @@ SceneRoots:
   - {fileID: 1260263359}
   - {fileID: 469369964}
   - {fileID: 840696840}
+  - {fileID: 100021143}
+  - {fileID: 1599106019}
+  - {fileID: 1727346916}

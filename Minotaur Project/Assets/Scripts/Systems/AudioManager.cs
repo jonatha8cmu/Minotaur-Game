@@ -4,53 +4,40 @@ using FMODUnity;
 using FMOD.Studio;
 
 /// <summary>
-/// Central audio system manager. Handles sound playback, instance management, and audio system initialization.
-/// Designed to be extended with features like occlusion, mixing, and spatial audio.
+/// AudioManager: owns FMOD event instance creation, listener caching, and centralized occlusion ticking for AudioEmitter.
+/// Must exist once in the game (place a prefab in the first scene). No auto-respawn after destruction or during quit.
 /// </summary>
 public class AudioManager : MonoBehaviour
 {
-    #region Singleton
+    // Singleton (no auto create after startup)
     private static AudioManager instance;
+    private static bool applicationQuitting;
+
     public static AudioManager Instance
     {
         get
         {
-            if (instance == null)
-            {
-                instance = FindFirstObjectByType<AudioManager>();
-                if (instance == null)
-                {
-                    GameObject go = new GameObject("AudioManager");
-                    instance = go.AddComponent<AudioManager>();
-                    DontDestroyOnLoad(go);
-                }
-            }
-            return instance;
+            if (applicationQuitting) return instance; // do not recreate while quitting
+            if (instance != null) return instance;
+            instance = FindFirstObjectByType<AudioManager>();
+            return instance; // may be null if not placed in scene
         }
     }
-    #endregion
 
-    #region Serialized Fields
-    [Header("Debug")]
-    [SerializeField] private bool logSoundPlayback = false;
-    [SerializeField] private bool showActiveInstances = false;
-    #endregion
+    [Header("Debug")] [SerializeField] private bool logSoundPlayback;
+    [SerializeField] private bool showActiveInstances;
 
-    #region Private Fields
-    // Track active persistent instances
+    // Runtime collections
     private readonly Dictionary<string, EventInstance> persistentInstances = new();
-    
-    // Track all one-shot instances for cleanup
-    private readonly List<EventInstance> activeSounds = new();
-    
-    // Cached listener reference
-    private Transform listenerTransform;
-    #endregion
+    private readonly List<EventInstance> activeOneShots = new();
+    private readonly List<AudioEmitter> emitters = new();
 
-    #region Unity Callbacks
-    void Awake()
+    private Transform listenerTransform;
+    private int staggerIndex;
+
+    #region Unity Lifecycle
+    private void Awake()
     {
-        // Singleton enforcement
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -58,280 +45,213 @@ public class AudioManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-
-        Initialize();
+        CacheListener();
+        if (logSoundPlayback) Debug.Log("[AudioManager] Awake initialized");
     }
 
-    void Update()
+    private void Update()
     {
-        CleanupFinishedSounds();
-
+        CleanupFinishedOneShots();
+        TickEmitters();
         if (showActiveInstances)
-            LogActiveInstances();
+            Debug.Log($"[AudioManager] OneShots={activeOneShots.Count} Persistent={persistentInstances.Count} Emitters={emitters.Count}");
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         if (instance == this)
-            Cleanup();
+        {
+            CleanupAll(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            instance = null;
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        applicationQuitting = true;
+        CleanupAll(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
     #endregion
 
-    #region Initialization & Cleanup
-    /// <summary>Initialize the audio system and cache references.</summary>
-    private void Initialize()
-    {
-        CacheListener();
-
-        if (logSoundPlayback)
-            Debug.Log("[AudioManager] Initialized");
-    }
-
-    /// <summary>Cache or refresh the FMOD listener transform.</summary>
+    #region Listener
     private void CacheListener()
     {
-        var listener = FindFirstObjectByType<StudioListener>();
-        if (listener != null)
-            listenerTransform = listener.transform;
+        var l = FindFirstObjectByType<StudioListener>();
+        if (l != null) listenerTransform = l.transform;
     }
 
-    /// <summary>Clean up all active sound instances.</summary>
-    private void Cleanup()
+    public Transform GetListener()
     {
-        // Stop and release persistent instances
-        foreach (var kvp in persistentInstances)
-        {
-            if (kvp.Value.isValid())
-            {
-                kvp.Value.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                kvp.Value.release();
-            }
-        }
-        persistentInstances.Clear();
-
-        // Clean active one-shots
-        foreach (var instance in activeSounds)
-        {
-            if (instance.isValid())
-            {
-                instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                instance.release();
-            }
-        }
-        activeSounds.Clear();
-
-        if (logSoundPlayback)
-            Debug.Log("[AudioManager] Cleaned up all audio instances");
-    }
-
-    /// <summary>Remove finished one-shot sounds from tracking.</summary>
-    private void CleanupFinishedSounds()
-    {
-        activeSounds.RemoveAll(instance =>
-        {
-            if (!instance.isValid())
-                return true;
-
-            instance.getPlaybackState(out PLAYBACK_STATE state);
-            return state == PLAYBACK_STATE.STOPPED;
-        });
+        if (listenerTransform == null) CacheListener();
+        return listenerTransform;
     }
     #endregion
 
-    #region Core Playback - One-Shot
-    /// <summary>Play a one-shot sound attached to a GameObject with optional parameters.</summary>
+    #region Emitter Management
+    public void RegisterEmitter(AudioEmitter e)
+    {
+        if (e == null || emitters.Contains(e)) return;
+        emitters.Add(e);
+    }
+
+    public void UnregisterEmitter(AudioEmitter e)
+    {
+        if (e == null) return;
+        emitters.Remove(e);
+    }
+
+    private void TickEmitters()
+    {
+        if (emitters.Count == 0) return;
+        staggerIndex = (staggerIndex + 1) % emitters.Count;
+        double now = AudioSettings.dspTime;
+        for (int i = 0; i < emitters.Count; i++)
+        {
+            var e = emitters[i];
+            if (e == null)
+            {
+                emitters.RemoveAt(i--);
+                continue;
+            }
+            if (i == staggerIndex || e.IsOcclusionDue(now))
+                e.TickOcclusion(now);
+        }
+    }
+    #endregion
+
+    #region Playback - One Shot
     public EventInstance PlayOneShot(string eventPath, GameObject attachTo, Dictionary<string, float> parameters = null)
     {
-        if (attachTo == null)
-        {
-            Debug.LogWarning("[AudioManager] PlayOneShot called with null GameObject. Sound will not play.");
-            return default;
-        }
-
-        var instance = CreateInstance(eventPath, attachTo.transform.position);
-        if (!instance.isValid()) return instance;
-
-        RuntimeManager.AttachInstanceToGameObject(instance, attachTo);
-
-        if (parameters != null)
-            SetParameters(instance, parameters);
-
-        instance.start();
-        instance.release();
-        activeSounds.Add(instance);
-
-        if (logSoundPlayback)
-            Debug.Log($"[AudioManager] Playing one-shot: {eventPath} on {attachTo.name}");
-
-        return instance;
+        if (attachTo == null) return default;
+        var inst = CreateInstance(eventPath, attachTo.transform.position);
+        if (!inst.isValid()) return inst;
+        RuntimeManager.AttachInstanceToGameObject(inst, attachTo);
+        if (parameters != null) SetParameters(inst, parameters);
+        inst.start();
+        inst.release(); // auto cleanup after playback
+        activeOneShots.Add(inst);
+        if (logSoundPlayback) Debug.Log($"[AudioManager] OneShot {eventPath} on {attachTo.name}");
+        return inst;
     }
     #endregion
 
-    #region Core Playback - Persistent Instances
-    /// <summary>Create and start a persistent looping sound with a unique ID.</summary>
+    #region Playback - Persistent
     public EventInstance CreatePersistentInstance(string id, string eventPath, GameObject attachTo)
     {
-        if (attachTo == null)
-        {
-            Debug.LogWarning($"[AudioManager] CreatePersistentInstance called with null GameObject for {id}. Sound will not be created.");
-            return default;
-        }
-
-        // Stop existing instance with same ID
-        if (persistentInstances.ContainsKey(id))
-        {
-            StopPersistentInstance(id);
-        }
-
-        var instance = CreateInstance(eventPath, attachTo.transform.position);
-        if (!instance.isValid()) return instance;
-
-        RuntimeManager.AttachInstanceToGameObject(instance, attachTo);
-        persistentInstances[id] = instance;
-
-        if (logSoundPlayback)
-            Debug.Log($"[AudioManager] Created persistent instance: {id} ({eventPath})");
-
-        return instance;
+        if (attachTo == null) return default;
+        if (persistentInstances.ContainsKey(id)) StopPersistentInstance(id);
+        var inst = CreateInstance(eventPath, attachTo.transform.position);
+        if (!inst.isValid()) return inst;
+        RuntimeManager.AttachInstanceToGameObject(inst, attachTo);
+        persistentInstances[id] = inst;
+        if (logSoundPlayback) Debug.Log($"[AudioManager] Persistent created {id}");
+        return inst;
     }
 
-    /// <summary>Start a persistent instance by ID.</summary>
     public void StartPersistentInstance(string id)
     {
-        if (persistentInstances.TryGetValue(id, out EventInstance instance) && instance.isValid())
+        if (persistentInstances.TryGetValue(id, out var inst) && inst.isValid())
         {
-            instance.start();
-            if (logSoundPlayback)
-                Debug.Log($"[AudioManager] Started persistent instance: {id}");
+            inst.start();
+            if (logSoundPlayback) Debug.Log($"[AudioManager] Persistent started {id}");
         }
     }
 
-    /// <summary>Stop a persistent instance by ID.</summary>
-    public void StopPersistentInstance(string id, FMOD.Studio.STOP_MODE stopMode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
+    public void StopPersistentInstance(string id, FMOD.Studio.STOP_MODE mode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
     {
-        if (persistentInstances.TryGetValue(id, out EventInstance instance) && instance.isValid())
+        if (persistentInstances.TryGetValue(id, out var inst) && inst.isValid())
         {
-            instance.stop(stopMode);
-            instance.release();
+            inst.stop(mode);
+            inst.release();
             persistentInstances.Remove(id);
-
-            if (logSoundPlayback)
-                Debug.Log($"[AudioManager] Stopped persistent instance: {id}");
+            if (logSoundPlayback) Debug.Log($"[AudioManager] Persistent stopped {id}");
         }
     }
 
-    /// <summary>Get a persistent instance by ID for manual control.</summary>
     public EventInstance GetPersistentInstance(string id)
     {
-        persistentInstances.TryGetValue(id, out EventInstance instance);
-        return instance;
+        persistentInstances.TryGetValue(id, out var inst);
+        return inst;
     }
 
-    /// <summary>Check if a persistent instance exists and is playing.</summary>
     public bool IsPersistentInstancePlaying(string id)
     {
-        if (persistentInstances.TryGetValue(id, out EventInstance instance) && instance.isValid())
+        if (persistentInstances.TryGetValue(id, out var inst) && inst.isValid())
         {
-            instance.getPlaybackState(out PLAYBACK_STATE state);
-            return state == PLAYBACK_STATE.PLAYING;
+            inst.getPlaybackState(out PLAYBACK_STATE s);
+            return s == PLAYBACK_STATE.PLAYING;
         }
         return false;
     }
     #endregion
 
-    #region Instance Creation & Management
-    /// <summary>Create an FMOD event instance without starting it.</summary>
+    #region Parameter Helpers
     private EventInstance CreateInstance(string eventPath, Vector3 position)
     {
-        EventInstance instance = RuntimeManager.CreateInstance(eventPath);
-        
-        if (!instance.isValid())
+        var inst = RuntimeManager.CreateInstance(eventPath);
+        if (!inst.isValid())
         {
-            Debug.LogError($"[AudioManager] Failed to create instance for: {eventPath}");
-            return instance;
+            Debug.LogError($"[AudioManager] Failed to create instance for {eventPath}");
+            return inst;
         }
-
-        instance.set3DAttributes(RuntimeUtils.To3DAttributes(position));
-        return instance;
+        inst.set3DAttributes(RuntimeUtils.To3DAttributes(position));
+        return inst;
     }
 
-    /// <summary>Set multiple parameters on an event instance.</summary>
-    public void SetParameters(EventInstance instance, Dictionary<string, float> parameters)
+    public void SetParameters(EventInstance inst, Dictionary<string, float> parameters)
     {
-        if (!instance.isValid() || parameters == null) return;
-
-        foreach (var param in parameters)
-        {
-            instance.setParameterByName(param.Key, param.Value);
-        }
+        if (!inst.isValid() || parameters == null) return;
+        foreach (var p in parameters) inst.setParameterByName(p.Key, p.Value);
     }
 
-    /// <summary>Set a single parameter on an event instance.</summary>
-    public void SetParameter(EventInstance instance, string parameterName, float value)
+    public void SetParameter(EventInstance inst, string name, float value)
     {
-        if (instance.isValid())
-            instance.setParameterByName(parameterName, value);
+        if (inst.isValid()) inst.setParameterByName(name, value);
     }
 
-    /// <summary>Set a global parameter across the entire FMOD system.</summary>
-    public void SetGlobalParameter(string parameterName, float value)
+    public void SetGlobalParameter(string name, float value)
     {
-        RuntimeManager.StudioSystem.setParameterByName(parameterName, value);
-
-        if (logSoundPlayback)
-            Debug.Log($"[AudioManager] Set global parameter: {parameterName} = {value}");
+        RuntimeManager.StudioSystem.setParameterByName(name, value);
+        if (logSoundPlayback) Debug.Log($"[AudioManager] Global {name}={value}");
     }
     #endregion
 
-    #region Utility Methods
-    /// <summary>Stop all currently playing sounds.</summary>
-    public void StopAllSounds(FMOD.Studio.STOP_MODE stopMode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
+    #region Global Control
+    public void StopAllSounds(FMOD.Studio.STOP_MODE mode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
     {
-        // Stop all one-shots
-        foreach (var instance in activeSounds)
-        {
-            if (instance.isValid())
-                instance.stop(stopMode);
-        }
-        activeSounds.Clear();
+        foreach (var inst in activeOneShots)
+            if (inst.isValid()) inst.stop(mode);
+        activeOneShots.Clear();
 
-        // Stop all persistent instances
-        foreach (var kvp in persistentInstances)
-        {
-            if (kvp.Value.isValid())
-            {
-                kvp.Value.stop(stopMode);
-                kvp.Value.release();
-            }
-        }
+        foreach (var kv in persistentInstances)
+            if (kv.Value.isValid()) { kv.Value.stop(mode); kv.Value.release(); }
         persistentInstances.Clear();
 
-        if (logSoundPlayback)
-            Debug.Log("[AudioManager] Stopped all sounds");
+        if (logSoundPlayback) Debug.Log("[AudioManager] Stopped all sounds");
     }
 
-    /// <summary>Pause/unpause all sounds.</summary>
     public void PauseAll(bool pause)
     {
         RuntimeManager.GetBus("bus:/").setPaused(pause);
-
-        if (logSoundPlayback)
-            Debug.Log($"[AudioManager] {(pause ? "Paused" : "Unpaused")} all audio");
-    }
-
-    /// <summary>Get the listener transform (cached).</summary>
-    public Transform GetListener()
-    {
-        if (listenerTransform == null)
-            CacheListener();
-        return listenerTransform;
+        if (logSoundPlayback) Debug.Log($"[AudioManager] {(pause ? "Paused" : "Unpaused")} all");
     }
     #endregion
 
-    #region Debug
-    private void LogActiveInstances()
+    #region Cleanup
+    private void CleanupFinishedOneShots()
     {
-        Debug.Log($"[AudioManager] Active one-shots: {activeSounds.Count} | Persistent: {persistentInstances.Count}");
+        activeOneShots.RemoveAll(inst =>
+        {
+            if (!inst.isValid()) return true;
+            inst.getPlaybackState(out PLAYBACK_STATE s);
+            return s == PLAYBACK_STATE.STOPPED;
+        });
+    }
+
+    private void CleanupAll(FMOD.Studio.STOP_MODE mode)
+    {
+        StopAllSounds(mode);
+        emitters.Clear();
     }
     #endregion
 }

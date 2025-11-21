@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{f2a6862d-22f3-43e6-85bf-b6c1779d9da9}">
+		<property name="assetPath">
+			<value>UI/soundscrate-wind-flying-2.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>63.048000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ede4e89e-3fd1-461d-a621-2441f2aaafcb}</destination>
+		</relationship>
+	</object>
+</objects>
