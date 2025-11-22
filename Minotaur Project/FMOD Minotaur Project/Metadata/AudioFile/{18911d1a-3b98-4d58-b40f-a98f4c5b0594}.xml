@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{18911d1a-3b98-4d58-b40f-a98f4c5b0594}">
+		<property name="assetPath">
+			<value>UI/220208__gameaudio__click-pop-two-part.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.50031746031746027</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ede4e89e-3fd1-461d-a621-2441f2aaafcb}</destination>
+		</relationship>
+	</object>
+</objects>
