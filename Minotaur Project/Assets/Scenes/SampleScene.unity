@@ -648,11 +648,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1778947172
-      Data2: 1214948427
-      Data3: -1545080162
-      Data4: -1561924857
-    Path: event:/test
+      Data1: 1678730618
+      Data2: 1280342677
+      Data3: 346393525
+      Data4: 400347807
+    Path: event:/Test Sounds/test
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
