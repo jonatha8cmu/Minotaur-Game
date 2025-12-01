@@ -7,21 +7,10 @@ public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance { get; private set; }
 
-    // Outgoing events
-    public struct CameraTargetChanged { public Transform OldTarget; public Transform NewTarget; }
-    public struct CameraModeChanged { public string Mode; }
-
-    // Incoming events
-    public struct PlayerSpawned { public GameObject Player; }
-    public struct LoadCompleted { public int SlotId; public bool Success; }
-    public struct GameStateChanged { public GameStateManager.GameState Previous; public GameStateManager.GameState Current; }
-
-    public struct CameraTargetSetRequested { public Transform Target; }
-
     public Transform CurrentTarget { get; private set; }
 
     [Header("Camera Settings")] [SerializeField]
-    private float followLerp = 10f; // smoothing factor
+    private float followLerp = 10f;
     [SerializeField] private Vector3 offset = new Vector3(0, 5, -8);
 
     private string _currentMode = "Idle";
@@ -63,7 +52,6 @@ public class CameraManager : MonoBehaviour
 
     private void OnPlayerSpawned(PlayerSpawned evt)
     {
-        // Auto-bind first player spawn if no target yet
         if (evt.Player != null && CurrentTarget == null)
         {
             SetFollowTarget(evt.Player.transform);
@@ -72,22 +60,20 @@ public class CameraManager : MonoBehaviour
 
     private void OnLoadCompleted(LoadCompleted evt)
     {
-        // Potential place to restore camera mode/offset from save snapshot (noop for now)
+        // No-op for now
     }
 
     private void OnGameStateChanged(GameStateChanged evt)
     {
-        // Switch camera mode based on state
         string newMode = _currentMode;
-        if (evt.Current == GameStateManager.GameState.Playing) newMode = "Gameplay";
-        else if (evt.Current == GameStateManager.GameState.Paused) newMode = "Paused";
-        else if (evt.Current == GameStateManager.GameState.Loading) newMode = "Loading";
-        else if (evt.Current == GameStateManager.GameState.GameOver) newMode = "GameOver";
-        else if (evt.Current == GameStateManager.GameState.Boot) newMode = "Boot";
+        if (evt.Current == GameState.Playing) newMode = "Gameplay";
+        else if (evt.Current == GameState.Paused) newMode = "Paused";
+        else if (evt.Current == GameState.Loading) newMode = "Loading";
+        else if (evt.Current == GameState.GameOver) newMode = "GameOver";
+        else if (evt.Current == GameState.Boot) newMode = "Boot";
 
         if (newMode != _currentMode)
         {
-            var old = _currentMode;
             _currentMode = newMode;
             EventRouter.Publish(new CameraModeChanged { Mode = _currentMode });
         }
@@ -102,7 +88,6 @@ public class CameraManager : MonoBehaviour
         EventRouter.Publish(new CameraTargetChanged { OldTarget = old, NewTarget = CurrentTarget });
     }
 
-    // Public API wrapper
     public void SetFollowTarget(Transform target)
     {
         EventRouter.Publish(new CameraTargetSetRequested { Target = target });

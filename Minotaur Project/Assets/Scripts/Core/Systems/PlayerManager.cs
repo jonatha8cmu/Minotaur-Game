@@ -8,19 +8,8 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance { get; private set; }
 
     [Header("Player Prefab Reference")]
-    [SerializeField] private GameObject playerPrefab; // Assign via inspector
-    [SerializeField] private Transform defaultSpawnPoint; // Fallback spawn
-
-    // Event payloads (outgoing)
-    public struct PlayerSpawned { public GameObject Player; }
-    public struct PlayerDespawned { }
-    public struct PlayerDied { public string Cause; }
-    public struct PlayerRespawned { public GameObject Player; }
-
-    // Incoming request / trigger events
-    public struct PlayerSpawnRequested { public Transform SpawnPoint; }
-    public struct PlayerDespawnRequested { }
-    public struct SceneActivated { public string SceneId; } // mirrored signature from SceneManager for subscription
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Transform defaultSpawnPoint;
 
     public Transform PlayerTransform { get; private set; }
     private GameObject _playerInstance;
@@ -48,7 +37,6 @@ public class PlayerManager : MonoBehaviour
 
     private void OnSceneActivated(SceneActivated evt)
     {
-        // If automatic spawn desired: publish request using default spawn
         if (defaultSpawnPoint != null)
         {
             EventRouter.Publish(new PlayerSpawnRequested { SpawnPoint = defaultSpawnPoint });
@@ -57,7 +45,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayerSpawnRequested(PlayerSpawnRequested evt)
     {
-        if (_playerInstance != null) return; // Already spawned; use respawn logic instead
+        if (_playerInstance != null) return;
         Transform spawn = evt.SpawnPoint != null ? evt.SpawnPoint : defaultSpawnPoint;
         if (spawn == null || playerPrefab == null) return;
 
@@ -76,24 +64,21 @@ public class PlayerManager : MonoBehaviour
         EventRouter.Publish(new PlayerDespawned());
     }
 
-    // Optional external call for death handling (without coupling to health system yet)
     public void NotifyPlayerDied(string cause)
     {
         if (_playerInstance == null) return;
         EventRouter.Publish(new PlayerDied { Cause = cause });
-        // Placeholder: choose to respawn automatically or rely on GameStateManager
     }
 
     public void Respawn(Transform spawnPoint)
     {
-        if (_playerInstance == null) return; // Use spawn flow if not present
+        if (_playerInstance == null) return;
         Transform spawn = spawnPoint != null ? spawnPoint : defaultSpawnPoint;
         if (spawn == null) return;
         _playerInstance.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
         EventRouter.Publish(new PlayerRespawned { Player = _playerInstance });
     }
 
-    // Public API wrappers publishing requests
     public void RequestSpawnAt(Transform spawnPoint)
     {
         EventRouter.Publish(new PlayerSpawnRequested { SpawnPoint = spawnPoint });

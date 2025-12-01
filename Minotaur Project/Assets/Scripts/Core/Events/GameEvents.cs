@@ -24,38 +24,38 @@ public class GameEvents : MonoBehaviour
 
     private void OnEnable()
     {
-        EventRouter.Subscribe<GameStateManager.GameStateChanged>(OnGameStateChanged);
-        EventRouter.Subscribe<PlayerManager.PlayerSpawned>(OnPlayerSpawned);
-        EventRouter.Subscribe<CameraManager.CameraTargetChanged>(OnCameraTargetChanged);
+        EventRouter.Subscribe<GameStateChanged>(OnGameStateChanged);
+        EventRouter.Subscribe<PlayerSpawned>(OnPlayerSpawned);
+        EventRouter.Subscribe<CameraTargetChanged>(OnCameraTargetChanged);
     }
 
     private void OnDisable()
     {
-        EventRouter.Unsubscribe<GameStateManager.GameStateChanged>(OnGameStateChanged);
-        EventRouter.Unsubscribe<PlayerManager.PlayerSpawned>(OnPlayerSpawned);
-        EventRouter.Unsubscribe<CameraManager.CameraTargetChanged>(OnCameraTargetChanged);
+        EventRouter.Unsubscribe<GameStateChanged>(OnGameStateChanged);
+        EventRouter.Unsubscribe<PlayerSpawned>(OnPlayerSpawned);
+        EventRouter.Unsubscribe<CameraTargetChanged>(OnCameraTargetChanged);
     }
 
-    private void OnGameStateChanged(GameStateManager.GameStateChanged evt)
+    private void OnGameStateChanged(GameStateChanged evt)
     {
-        if (evt.Current == GameStateManager.GameState.Playing && !_gameplayReadyFired)
+        if (evt.Current == GameState.Playing && !_gameplayReadyFired)
         {
             _gameplayReadyFired = true;
             EventRouter.Publish(new GameplayReady());
         }
-        if (evt.Current != GameStateManager.GameState.Playing)
+        if (evt.Current != GameState.Playing)
         {
             _gameplayReadyFired = false; // reset if leaving playing
         }
     }
 
-    private void OnPlayerSpawned(PlayerManager.PlayerSpawned evt)
+    private void OnPlayerSpawned(PlayerSpawned evt)
     {
         _player = evt.Player;
         PublishPlayerContext();
     }
 
-    private void OnCameraTargetChanged(CameraManager.CameraTargetChanged evt)
+    private void OnCameraTargetChanged(CameraTargetChanged evt)
     {
         _cameraTarget = evt.NewTarget;
         PublishPlayerContext();

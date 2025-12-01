@@ -7,22 +7,6 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance { get; private set; }
 
-    public enum GameState { None, Boot, Loading, Playing, Paused, GameOver }
-
-    // Outgoing events
-    public struct GameStateChanging { public GameState From; public GameState To; }
-    public struct GameStateChanged { public GameState Previous; public GameState Current; }
-    public struct PauseToggled { public bool IsPaused; }
-
-    // Incoming events used for gating transitions
-    public struct SceneActivated { public string SceneId; }
-    public struct PlayerSpawned { public GameObject Player; }
-    public struct LoadCompleted { public int SlotId; public bool Success; }
-
-    // Requests
-    public struct GameStateEnterRequested { public GameState Target; }
-    public struct PauseToggleRequested { }
-
     public GameState Current { get; private set; } = GameState.None;
 
     private bool _sceneReady;
@@ -56,24 +40,16 @@ public class GameStateManager : MonoBehaviour
 
     private void OnGameStateEnterRequested(GameStateEnterRequested evt)
     {
-        // Validate transitions; Boot -> Loading -> Playing typical path
         if (!IsTransitionAllowed(Current, evt.Target)) return;
-        PublishChanging(evt.Target);
+        EventRouter.Publish(new GameStateChanging { From = Current, To = evt.Target });
         Current = evt.Target;
-        PublishChanged(evt.Target);
+        EventRouter.Publish(new GameStateChanged { Previous = Current, Current = evt.Target });
 
         if (evt.Target == GameState.Loading)
         {
-            // Reset readiness flags
             _sceneReady = false;
             _playerReady = false;
-            _loadDoneOrSkipped = false; // SaveManager will set or we will treat as skipped externally
-        }
-
-        // If entering Playing directly (e.g., skipping load) ensure gating satisfied or mark as satisfied
-        if (evt.Target == GameState.Playing)
-        {
-            // If gating flags already satisfied nothing else needed; else remain in Playing anyway.
+            _loadDoneOrSkipped = false;
         }
     }
 
@@ -85,9 +61,8 @@ public class GameStateManager : MonoBehaviour
             case GameState.None:
                 return to == GameState.Boot;
             case GameState.Boot:
-                return to == GameState.Loading || to == GameState.GameOver; // allow immediate exit if needed
+                return to == GameState.Loading || to == GameState.GameOver;
             case GameState.Loading:
-                // Only allow Playing after gating conditions
                 if (to == GameState.Playing)
                 {
                     return _sceneReady && _playerReady && _loadDoneOrSkipped;
@@ -98,20 +73,10 @@ public class GameStateManager : MonoBehaviour
             case GameState.Paused:
                 return to == GameState.Playing || to == GameState.GameOver;
             case GameState.GameOver:
-                return to == GameState.Loading || to == GameState.Boot; // restart flow
+                return to == GameState.Loading || to == GameState.Boot;
             default:
                 return false;
         }
-    }
-
-    private void PublishChanging(GameState to)
-    {
-        EventRouter.Publish(new GameStateChanging { From = Current, To = to });
-    }
-
-    private void PublishChanged(GameState to)
-    {
-        EventRouter.Publish(new GameStateChanged { Previous = Current, Current = to });
     }
 
     private void OnPauseToggleRequested(PauseToggleRequested evt)
@@ -119,11 +84,11 @@ public class GameStateManager : MonoBehaviour
         if (Current != GameState.Playing && Current != GameState.Paused) return;
         bool willPause = Current == GameState.Playing;
         var target = willPause ? GameState.Paused : GameState.Playing;
-        PublishChanging(target);
+        EventRouter.Publish(new GameStateChanging { From = Current, To = target });
         Current = target;
-        PublishChanged(target);
+        EventRouter.Publish(new GameStateChanged { Previous = Current, Current = target });
         EventRouter.Publish(new PauseToggled { IsPaused = willPause });
-        Time.timeScale = willPause ? 0f : 1f; // simple pause mechanic
+        Time.timeScale = willPause ? 0f : 1f;
     }
 
     private void OnSceneActivated(SceneActivated evt)
@@ -140,7 +105,7 @@ public class GameStateManager : MonoBehaviour
 
     private void OnLoadCompleted(LoadCompleted evt)
     {
-        _loadDoneOrSkipped = true; // Success or fail both allow proceed (could add fail handling)
+        _loadDoneOrSkipped = true;
         TryAutoAdvanceFromLoading();
     }
 
@@ -148,12 +113,10 @@ public class GameStateManager : MonoBehaviour
     {
         if (Current == GameState.Loading && _sceneReady && _playerReady && _loadDoneOrSkipped)
         {
-            // Request enter Playing via event to keep consistency
             EventRouter.Publish(new GameStateEnterRequested { Target = GameState.Playing });
         }
     }
 
-    // Public API wrappers
     public void RequestEnterState(GameState target)
     {
         EventRouter.Publish(new GameStateEnterRequested { Target = target });

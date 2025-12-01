@@ -12,20 +12,10 @@ public class SceneManager : MonoBehaviour
 {
     public static SceneManager Instance { get; private set; }
 
-    // Event payloads for EventRouter
-    public struct SceneLoadRequested { public string SceneId; } // Published by GameStateManager or SaveManager to request load
-    public struct SceneLoadStarted { public string SceneId; }
-    public struct SceneLoadProgress { public string SceneId; public float Progress; }
-    public struct SceneActivated { public string SceneId; }
-    public struct SceneUnloadRequested { public string SceneId; }
-    public struct SceneUnloadStarted { public string SceneId; }
-    public struct SceneUnloaded { public string SceneId; }
-
     private string _activeSceneId = string.Empty;
     private bool _isLoading;
     private bool _isUnloading;
 
-    // Tracking currently loaded additive scenes (excluding persistent bootstrap)
     private readonly System.Collections.Generic.HashSet<string> _loadedAdditive = new();
 
     private void Awake()
@@ -51,11 +41,7 @@ public class SceneManager : MonoBehaviour
 
     private void OnSceneLoadRequested(SceneLoadRequested evt)
     {
-        if (_isLoading)
-        {
-            // Ignore overlapping loads; could extend to queueing
-            return;
-        }
+        if (_isLoading) return;
         if (string.IsNullOrWhiteSpace(evt.SceneId)) return;
         StartCoroutine(LoadSceneRoutine(evt.SceneId));
     }
@@ -64,7 +50,7 @@ public class SceneManager : MonoBehaviour
     {
         if (_isUnloading) return;
         if (string.IsNullOrWhiteSpace(evt.SceneId)) return;
-        if (!_loadedAdditive.Contains(evt.SceneId)) return; // Not loaded
+        if (!_loadedAdditive.Contains(evt.SceneId)) return;
         StartCoroutine(UnloadSceneRoutine(evt.SceneId));
     }
 
@@ -81,7 +67,7 @@ public class SceneManager : MonoBehaviour
         catch
         {
             _isLoading = false;
-            yield break; // Could publish failure event type if desired
+            yield break;
         }
 
         while (op != null && !op.isDone)
@@ -90,11 +76,9 @@ public class SceneManager : MonoBehaviour
             yield return null;
         }
 
-        // Mark loaded
         _loadedAdditive.Add(sceneId);
-        _activeSceneId = sceneId; // Active gameplay scene reference
+        _activeSceneId = sceneId;
 
-        // Optionally set scene as active for lighting / instantiate context
         try
         {
             var loadedScene = UnityEngine.SceneManagement.SceneManager.GetSceneByName(sceneId);
@@ -122,7 +106,7 @@ public class SceneManager : MonoBehaviour
         catch
         {
             _isUnloading = false;
-            yield break; // Could publish failure variant
+            yield break;
         }
 
         while (op != null && !op.isDone)
@@ -133,14 +117,13 @@ public class SceneManager : MonoBehaviour
         _loadedAdditive.Remove(sceneId);
         if (_activeSceneId == sceneId)
         {
-            _activeSceneId = string.Empty; // Caller will request new scene
+            _activeSceneId = string.Empty;
         }
 
         EventRouter.Publish(new SceneUnloaded { SceneId = sceneId });
         _isUnloading = false;
     }
 
-    // Public API wrappers
     public void RequestLoadScene(string sceneId)
     {
         EventRouter.Publish(new SceneLoadRequested { SceneId = sceneId });

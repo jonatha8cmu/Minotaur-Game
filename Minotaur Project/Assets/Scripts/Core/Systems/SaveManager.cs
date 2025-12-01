@@ -9,22 +9,10 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance { get; private set; }
 
-    // Outgoing event payloads
-    public struct SaveStarted { public int SlotId; }
-    public struct SaveCompleted { public int SlotId; public bool Success; }
-    public struct LoadStarted { public int SlotId; }
-    public struct LoadCompleted { public int SlotId; public bool Success; }
-
-    // Incoming request payloads
-    public struct SaveRequested { public int SlotId; }
-    public struct LoadRequested { public int SlotId; }
-    public struct PlayerSpawned { public GameObject Player; } // mirror for subscription to trigger auto-load
-
-    // Simple in-memory representation of save slots (placeholder for real persistence)
     private readonly Dictionary<int, string> _slotData = new();
     private bool _isSaving;
     private bool _isLoading;
-    private int _autoLoadSlot = -1; // Set externally if auto-load desired
+    private int _autoLoadSlot = -1;
 
     private void Awake()
     {
