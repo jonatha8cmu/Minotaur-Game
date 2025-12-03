@@ -1,15 +1,14 @@
 using UnityEngine;
 using Core.Events;
 
-// Lifecycle Order (Bootstrap):
-// After SceneManager publishes SceneActivated -> PlayerManager spawns -> publishes PlayerSpawned -> SaveManager can restore -> CameraManager attaches.
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance { get; private set; }
 
     [Header("Player Prefab Reference")]
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Transform defaultSpawnPoint;
+    [SerializeField] private GameObject playerPrefab; // prefab asset reference
+    [SerializeField] private Transform defaultSpawnPoint; // spawn location
+    [SerializeField] private Transform playerParent; // optional parent for spawned player (e.g., Gameplay)
 
     public Transform PlayerTransform { get; private set; }
     private GameObject _playerInstance;
@@ -19,25 +18,27 @@ public class PlayerManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
-    private void OnEnable()
-    {
+        // Early subscriptions; adoption happens only after scene activation
         EventRouter.Subscribe<SceneActivated>(OnSceneActivated);
         EventRouter.Subscribe<PlayerSpawnRequested>(OnPlayerSpawnRequested);
         EventRouter.Subscribe<PlayerDespawnRequested>(OnPlayerDespawnRequested);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         EventRouter.Unsubscribe<SceneActivated>(OnSceneActivated);
         EventRouter.Unsubscribe<PlayerSpawnRequested>(OnPlayerSpawnRequested);
         EventRouter.Unsubscribe<PlayerDespawnRequested>(OnPlayerDespawnRequested);
+        if (Instance == this) Instance = null;
     }
 
     private void OnSceneActivated(SceneActivated evt)
     {
-        if (defaultSpawnPoint != null)
+        // HOT FIX: adopt-if-present else spawn. Never both.
+        TryAdoptExistingPlayer();
+
+        if (_playerInstance == null && defaultSpawnPoint != null)
         {
             EventRouter.Publish(new PlayerSpawnRequested { SpawnPoint = defaultSpawnPoint });
         }
@@ -45,13 +46,19 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayerSpawnRequested(PlayerSpawnRequested evt)
     {
-        if (_playerInstance != null) return;
+        if (_playerInstance != null) return; // Already adopted or spawned
+
+        // Only instantiate from prefab asset (not a scene object)
+        if (playerPrefab == null || playerPrefab.scene.IsValid()) return;
+
         Transform spawn = evt.SpawnPoint != null ? evt.SpawnPoint : defaultSpawnPoint;
-        if (spawn == null || playerPrefab == null) return;
+        if (spawn == null) return;
 
-        _playerInstance = Instantiate(playerPrefab, spawn.position, spawn.rotation);
+        _playerInstance = playerParent != null
+            ? Instantiate(playerPrefab, spawn.position, spawn.rotation, playerParent)
+            : Instantiate(playerPrefab, spawn.position, spawn.rotation);
+
         PlayerTransform = _playerInstance.transform;
-
         EventRouter.Publish(new PlayerSpawned { Player = _playerInstance });
     }
 
@@ -62,6 +69,18 @@ public class PlayerManager : MonoBehaviour
         _playerInstance = null;
         PlayerTransform = null;
         EventRouter.Publish(new PlayerDespawned());
+    }
+
+    private void TryAdoptExistingPlayer()
+    {
+        // Adopt existing scene player if present (tag-based or by component later)
+        var existing = GameObject.FindWithTag("Player");
+        if (existing != null)
+        {
+            _playerInstance = existing;
+            PlayerTransform = _playerInstance.transform;
+            EventRouter.Publish(new PlayerSpawned { Player = _playerInstance });
+        }
     }
 
     public void NotifyPlayerDied(string cause)

@@ -39,9 +39,10 @@ namespace Core.Events
     public struct PauseToggled { public bool IsPaused; }
 
     // Camera
+    public enum CameraMode { Idle, Gameplay, Paused, Loading, GameOver, Boot }
     public struct CameraTargetSetRequested { public Transform Target; }
     public struct CameraTargetChanged { public Transform OldTarget; public Transform NewTarget; }
-    public struct CameraModeChanged { public string Mode; }
+    public struct CameraModeChanged { public CameraMode Mode; }
 
     // Composite domain events (for UI)
     public struct GameplayReady { }
