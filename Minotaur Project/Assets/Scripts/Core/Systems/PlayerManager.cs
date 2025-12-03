@@ -6,9 +6,8 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance { get; private set; }
 
     [Header("Player Prefab Reference")]
-    [SerializeField] private GameObject playerPrefab; // prefab asset reference
-    [SerializeField] private Transform defaultSpawnPoint; // spawn location
-    [SerializeField] private Transform playerParent; // optional parent for spawned player (e.g., Gameplay)
+    [SerializeField] private GameObject playerPrefab; // prefab asset reference (must be an asset, not a scene object)
+    [SerializeField] private Transform playerParent;   // optional parent for spawned player (e.g., Gameplay)
 
     public Transform PlayerTransform { get; private set; }
     private GameObject _playerInstance;
@@ -19,7 +18,7 @@ public class PlayerManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Early subscriptions; adoption happens only after scene activation
+        // Subscriptions
         EventRouter.Subscribe<SceneActivated>(OnSceneActivated);
         EventRouter.Subscribe<PlayerSpawnRequested>(OnPlayerSpawnRequested);
         EventRouter.Subscribe<PlayerDespawnRequested>(OnPlayerDespawnRequested);
@@ -35,28 +34,26 @@ public class PlayerManager : MonoBehaviour
 
     private void OnSceneActivated(SceneActivated evt)
     {
-        // HOT FIX: adopt-if-present else spawn. Never both.
-        TryAdoptExistingPlayer();
-
-        if (_playerInstance == null && defaultSpawnPoint != null)
+        // Manager-controlled spawn: never adopt. Find scene-defined spawn and request spawn if none exists.
+        if (_playerInstance == null)
         {
-            EventRouter.Publish(new PlayerSpawnRequested { SpawnPoint = defaultSpawnPoint });
+            var spawn = FindSpawnInScene();
+            EventRouter.Publish(new PlayerSpawnRequested { SpawnPoint = spawn });
         }
     }
 
     private void OnPlayerSpawnRequested(PlayerSpawnRequested evt)
     {
-        if (_playerInstance != null) return; // Already adopted or spawned
+        if (_playerInstance != null) return; // Already spawned
+        if (playerPrefab == null || playerPrefab.scene.IsValid()) return; // Require prefab asset
 
-        // Only instantiate from prefab asset (not a scene object)
-        if (playerPrefab == null || playerPrefab.scene.IsValid()) return;
-
-        Transform spawn = evt.SpawnPoint != null ? evt.SpawnPoint : defaultSpawnPoint;
-        if (spawn == null) return;
+        var spawn = evt.SpawnPoint != null ? evt.SpawnPoint : FindSpawnInScene();
+        var pos = spawn != null ? spawn.position : Vector3.zero;
+        var rot = spawn != null ? spawn.rotation : Quaternion.identity;
 
         _playerInstance = playerParent != null
-            ? Instantiate(playerPrefab, spawn.position, spawn.rotation, playerParent)
-            : Instantiate(playerPrefab, spawn.position, spawn.rotation);
+            ? Instantiate(playerPrefab, pos, rot, playerParent)
+            : Instantiate(playerPrefab, pos, rot);
 
         PlayerTransform = _playerInstance.transform;
         EventRouter.Publish(new PlayerSpawned { Player = _playerInstance });
@@ -71,42 +68,22 @@ public class PlayerManager : MonoBehaviour
         EventRouter.Publish(new PlayerDespawned());
     }
 
-    private void TryAdoptExistingPlayer()
+    private Transform FindSpawnInScene()
     {
-        // Adopt existing scene player if present (tag-based or by component later)
-        var existing = GameObject.FindWithTag("Player");
-        if (existing != null)
-        {
-            _playerInstance = existing;
-            PlayerTransform = _playerInstance.transform;
-            EventRouter.Publish(new PlayerSpawned { Player = _playerInstance });
-        }
-    }
-
-    public void NotifyPlayerDied(string cause)
-    {
-        if (_playerInstance == null) return;
-        EventRouter.Publish(new PlayerDied { Cause = cause });
+        var spawnGo = GameObject.FindWithTag("PlayerSpawn");
+        return spawnGo != null ? spawnGo.transform : null;
     }
 
     public void Respawn(Transform spawnPoint)
     {
         if (_playerInstance == null) return;
-        Transform spawn = spawnPoint != null ? spawnPoint : defaultSpawnPoint;
+        var spawn = spawnPoint != null ? spawnPoint : FindSpawnInScene();
         if (spawn == null) return;
         _playerInstance.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
         EventRouter.Publish(new PlayerRespawned { Player = _playerInstance });
     }
 
-    public void RequestSpawnAt(Transform spawnPoint)
-    {
-        EventRouter.Publish(new PlayerSpawnRequested { SpawnPoint = spawnPoint });
-    }
-
-    public void RequestDespawn()
-    {
-        EventRouter.Publish(new PlayerDespawnRequested());
-    }
-
+    public void RequestSpawnAt(Transform spawnPoint) => EventRouter.Publish(new PlayerSpawnRequested { SpawnPoint = spawnPoint });
+    public void RequestDespawn() => EventRouter.Publish(new PlayerDespawnRequested());
     public GameObject GetPlayerObject() => PlayerTransform ? PlayerTransform.gameObject : null;
 }

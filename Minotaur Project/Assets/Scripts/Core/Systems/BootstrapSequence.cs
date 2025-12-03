@@ -10,7 +10,7 @@ namespace Core.Bootstrap
         private enum Phase { None, RequestedScene, SceneActivated, PlayerSpawned, LoadCompleted, CameraAttached, PlayingEntered }
         private Phase _phase = Phase.None;
 
-        [SerializeField] private string initialSceneId = "Gameplay";
+        [SerializeField] private string initialSceneId = "StartScene";
         [SerializeField] private int autoLoadSlot = -1;
 
         private GameObject _player;
