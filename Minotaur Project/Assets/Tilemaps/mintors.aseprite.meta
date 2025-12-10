@@ -1,0 +1,3058 @@
+fileFormatVersion: 2
+guid: a1658d9a45ec146d79908d7ace4adbf2
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 32
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 2
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
+  asepriteImporterSettings:
+    fileImportMode: 2
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 639009173378365180
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: mintors
+    originalName: 
+    pivot: {x: 0.625, y: 0.015479876}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 512
+      height: 323
+    spriteID: 15802103fb492438aa567ae7a86163e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  spriteSheetImportData: []
+  tileSetImportData:
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 205
+      width: 32
+      height: 32
+    spriteID: 300bf21ca13fa4367b4b14f7f7d91296
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 205}
+  - name: Floortile_flesh1
+    originalName: 
+    pivot: {x: 9.69697, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 145
+      y: 4
+      width: 33
+      height: 32
+    spriteID: c65beb4d8eac349eab2b1cfbaadd021b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 145, y: 4}
+  - name: Floortile_flesh1 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 309
+      y: 4
+      width: 32
+      height: 32
+    spriteID: 923531e0333e94e0b8a4fd0a324c5ef5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 309, y: 4}
+  - name: Floortile_flesh1 Copy Copy
+    originalName: 
+    pivot: {x: 9.69697, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 4
+      width: 33
+      height: 32
+    spriteID: 5ebfcaec22179440db350435327b274f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 186, y: 4}
+  - name: Floortileshadow_2
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 349
+      y: 4
+      width: 32
+      height: 32
+    spriteID: 026e1ebdbe25e4cc9985c574840e6679
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 349, y: 4}
+  - name: Floortileshadow_2 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 389
+      y: 4
+      width: 32
+      height: 32
+    spriteID: fcb7d0c3d7b8c462a98de21eb187793a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 389, y: 4}
+  - name: Layer 1 Copy Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 429
+      y: 4
+      width: 32
+      height: 32
+    spriteID: ca07799a1c1364ae3a219a29889809fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 429, y: 4}
+  - name: Floortile_2
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 4
+      width: 32
+      height: 32
+    spriteID: a1d12ed9b8ef34ca58e47a230d34fab7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 4}
+  - name: Floortile_2 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 8d9e78915039240b4bcc00b689f5b782
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 44}
+  - name: Floortile_2 Copy_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 75de7fc398eb8457692ff66c99f4ca93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 44}
+  - name: Floortilelong_half1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 6559ec3c1b67c41c6a02cb1458a9ee5f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 44}
+  - name: Floortilelong_half1 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 44
+      width: 32
+      height: 32
+    spriteID: be966516c65524f17ad0025c2c85ff87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 204, y: 44}
+  - name: Layer 1 Copy Copy_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 5776e39447764446096fe2c6fbe58c7c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 44}
+  - name: Layer 1 Copy Copy_2
+    originalName: 
+    pivot: {x: 9.69697, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 4
+      width: 33
+      height: 32
+    spriteID: 53e379a47893842e1a6cd8edab73806d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 4}
+  - name: Layer 5 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 284
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 3ded2989a47754875beb045f2d184e4b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 284, y: 44}
+  - name: Bottomwalchainsl_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 324
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 47c0fb61326164d3bbe8771ed1e3883a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 324, y: 44}
+  - name: Topwalchainsl_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 44
+      width: 32
+      height: 32
+    spriteID: f4f536aa175c64da4b25c9eee877692b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 44}
+  - name: Layer 5 Copy Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 404
+      y: 44
+      width: 32
+      height: 32
+    spriteID: e141accf8f23a4a8080b4c4b0d1fdadc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 404, y: 44}
+  - name: Wallconnectorflesh_2
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 444
+      y: 44
+      width: 32
+      height: 32
+    spriteID: ffcb86cb7bebf41b1a891c9832730cf2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 444, y: 44}
+  - name: Bottomwall_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 84
+      width: 32
+      height: 32
+    spriteID: c0478965f71e54f36bdb47572a6e8ec5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 84}
+  - name: Layer 5 Copy Copy Copy_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 23eb8110f28c743ff8d3280e53551a6b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 84}
+  - name: Layer 12
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 84
+      width: 32
+      height: 32
+    spriteID: b4f343c2d3fb34bf5b626b0d7710639a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 84}
+  - name: Layer 5 Copy Copy Copy_2
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 316d0b3aa98764121b6321eda7d7b42c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 204, y: 84}
+  - name: Layer 5 Copy Copy Copy Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 9e1eb8896c3ec48308c456261938a0f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 84}
+  - name: Topwall_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 284
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 139ee970be8d943e3890e50ae0391f5f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 284, y: 84}
+  - name: Topwall_1 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 324
+      y: 84
+      width: 32
+      height: 32
+    spriteID: d0095d4e629f242eda72139dc8569319
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 324, y: 84}
+  - name: Topwall_1 Copy Copy
+    originalName: 
+    pivot: {x: 6.037736, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 4
+      width: 53
+      height: 32
+    spriteID: 8adb0dde94a254edebadc742d9804b29
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 4}
+  - name: Topwallflesh_1
+    originalName: 
+    pivot: {x: 10, y: 4.848485}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 164
+      width: 32
+      height: 33
+    spriteID: d336e6db3f8184e70af5f3283f7b3aa5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 164}
+  - name: Layer 5 Copy Copy Copy Copy_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 5bad0e66771bf43809995943b98ef892
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 84}
+  - name: Layer 5 Copy Copy Copy Copy Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 404
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 1074932cf98734a1fb690cff5bd60967
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 404, y: 84}
+  - name: Wallconnectorflesh_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 444
+      y: 84
+      width: 32
+      height: 32
+    spriteID: d5d3acb13337a4d7f835c706e5406f85
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 444, y: 84}
+  - name: wallconnector_Right
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 241c79edf315c4c25ae04879e1161e50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 124}
+  - name: wallconnector_Left
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 124
+      width: 32
+      height: 32
+    spriteID: b7edcf0b48c9d4e7c92e75e110a8b2c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 124}
+  - name: Layer 6 Copy Copy
+    originalName: 
+    pivot: {x: 10, y: 1.6666666}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 32
+      height: 96
+    spriteID: a5a77116058024366b2fea423ea9b04e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 4}
+  - name: WallTopconnectorflesh_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 124
+      width: 32
+      height: 32
+    spriteID: e63a92440e7604d089b3b32033cc5c37
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 124}
+  - name: Layer 7
+    originalName: 
+    pivot: {x: 20, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 484
+      y: 44
+      width: 16
+      height: 32
+    spriteID: 6d04de1da8ed949d791f3bb4795f72e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 484, y: 44}
+  - name: WallTop_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 706f88518a9804b1d9c0ce6b398f3d14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 204, y: 124}
+  - name: WallTopflesh_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 124
+      width: 32
+      height: 32
+    spriteID: b7c088a0ccacc49268418ecdcb574a23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 124}
+  - name: Layer 6 Copy Copy Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 284
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 38936b6ffa95546d2a9f7a261d9accd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 284, y: 124}
+  - name: Layer 6 Copy Copy_2
+    originalName: 
+    pivot: {x: 10, y: 4.7058825}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 209
+      width: 32
+      height: 34
+    spriteID: 8b08427cbfcc54301870027bcbf663fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 209}
+  - name: Floortilelong_half2
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 324
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 4dfed46020a18456196b37d7d33a1e4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 324, y: 124}
+  - name: Floortilelong_half2 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 7cb336158c38f4f9e960588ac8c41aad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 124}
+  - name: Layer 1 Copy Copy Copy
+    originalName: 
+    pivot: {x: 9.69697, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 268
+      y: 4
+      width: 33
+      height: 32
+    spriteID: e2d10312285f741cfaa34ee9981fa1b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 268, y: 4}
+  - name: Layer 2
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 404
+      y: 124
+      width: 32
+      height: 32
+    spriteID: c0c280df491b14a27a465db9a95a7a52
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 404, y: 124}
+  - name: Layer 2 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 444
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 4ded115b31d48478f8f42f5f30ed5a4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 444, y: 124}
+  - name: SpikeTrap_Closed
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 164
+      width: 32
+      height: 32
+    spriteID: c4f96c8e8cf104956a47114023fcbdec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 164}
+  - name: SpikeTrap_Open
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 164
+      width: 32
+      height: 32
+    spriteID: de0edf7c6205d4243b32ff20b4ac83f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 164}
+  - name: Floortile_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 28a7afd70f8fd405b95de624a665bc90
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 164}
+  - name: Floortile_1 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 09f78f2050ba944f19720ebf9f7bca02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 204, y: 164}
+  - name: Floortile_1 Copy_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 839a1325bdb264bf491cee7174482d26
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 164}
+  - name: Floortileshadow_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 284
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 2b8eadaee56fc4c988368f34b430f1a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 284, y: 164}
+  - name: Floortileshadow_1 Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 324
+      y: 164
+      width: 32
+      height: 32
+    spriteID: a9f7a3de2488d425680b365cd688ede8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 324, y: 164}
+  - name: Floortileshadow_1 Copy_1
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 164
+      width: 32
+      height: 32
+    spriteID: a7502b6b8526d4f7098dfcb9062d423a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 164}
+  - name: Layer 2 Copy Copy
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 404
+      y: 164
+      width: 32
+      height: 32
+    spriteID: e0469ce5a0f3544659608f3e3f74cecc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 404, y: 164}
+  - name: Layer 3
+    originalName: 
+    pivot: {x: 10, y: 0.8121827}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 32
+      height: 197
+    spriteID: 90eb0cafb6dab40b8bf9344aca42c7b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Layer 14
+    originalName: 
+    pivot: {x: 10, y: 5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 444
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 5e4c76b3eb21d446280b915a24542092
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 444, y: 164}
+  - name: Box
+    originalName: 
+    pivot: {x: 10, y: 3.3333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 108
+      width: 32
+      height: 48
+    spriteID: 0f6805db617694937adb2ec8fbf3d3ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 108}
+  asepriteLayers:
+  - layerIndex: 0
+    uuid:
+      value0: 4287466680
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      spriteId: 300bf21ca13fa4367b4b14f7f7d91296
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 1
+    uuid:
+      value0: 264508996
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_flesh1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_flesh1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 160
+        y: 144
+        width: 33
+        height: 32
+      spriteId: c65beb4d8eac349eab2b1cfbaadd021b
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 2
+    uuid:
+      value0: 1051829165
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 13
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 3
+    uuid:
+      value0: 963761275
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_flesh1 Copy
+    layerFlags: 19
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_flesh1 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 144
+        width: 32
+        height: 32
+      spriteId: 923531e0333e94e0b8a4fd0a324c5ef5
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 4
+    uuid:
+      value0: 4091801005
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_flesh1 Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 5
+    uuid:
+      value0: 2169079342
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_flesh1 Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_flesh1 Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 112
+        width: 33
+        height: 32
+      spriteId: 5ebfcaec22179440db350435327b274f
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 6
+    uuid:
+      value0: 2171995399
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortileshadow_2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortileshadow_2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 288
+        y: 208
+        width: 32
+        height: 32
+      spriteId: 026e1ebdbe25e4cc9985c574840e6679
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 7
+    uuid:
+      value0: 1970956698
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortileshadow_2 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortileshadow_2 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 288
+        y: 272
+        width: 32
+        height: 32
+      spriteId: fcb7d0c3d7b8c462a98de21eb187793a
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 8
+    uuid:
+      value0: 2890348490
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 1 Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1 Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 432
+        y: 286
+        width: 32
+        height: 32
+      spriteId: ca07799a1c1364ae3a219a29889809fe
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 9
+    uuid:
+      value0: 4047482533
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 192
+        y: 144
+        width: 32
+        height: 32
+      spriteId: a1d12ed9b8ef34ca58e47a230d34fab7
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 10
+    uuid:
+      value0: 3411998982
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_2 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_2 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 288
+        y: 144
+        width: 32
+        height: 32
+      spriteId: 8d9e78915039240b4bcc00b689f5b782
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 11
+    uuid:
+      value0: 2943239274
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_2 Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_2 Copy_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 48
+        width: 32
+        height: 32
+      spriteId: 75de7fc398eb8457692ff66c99f4ca93
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 12
+    uuid:
+      value0: 2525504675
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortilelong_half1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortilelong_half1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 160
+        y: 112
+        width: 32
+        height: 32
+      spriteId: 6559ec3c1b67c41c6a02cb1458a9ee5f
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 13
+    uuid:
+      value0: 2799671350
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortilelong_half1 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortilelong_half1 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 160
+        y: 48
+        width: 32
+        height: 32
+      spriteId: be966516c65524f17ad0025c2c85ff87
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 14
+    uuid:
+      value0: 1107287470
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 1 Copy Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1 Copy Copy_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 386
+        y: 107
+        width: 32
+        height: 32
+      spriteId: 5776e39447764446096fe2c6fbe58c7c
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 15
+    uuid:
+      value0: 1107287467
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 1 Copy Copy_2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1 Copy Copy_2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 224
+        y: 144
+        width: 33
+        height: 32
+      spriteId: 53e379a47893842e1a6cd8edab73806d
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 16
+    uuid:
+      value0: 4287466684
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 17
+    uuid:
+      value0: 3900440823
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 192
+        y: 176
+        width: 32
+        height: 32
+      spriteId: 3ded2989a47754875beb045f2d184e4b
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 18
+    uuid:
+      value0: 1811441645
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Flattened
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 19
+    uuid:
+      value0: 3558465529
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Bottomwalchainsl_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Bottomwalchainsl_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 160
+        y: 176
+        width: 32
+        height: 32
+      spriteId: 47c0fb61326164d3bbe8771ed1e3883a
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 20
+    uuid:
+      value0: 3718606109
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Topwalchainsl_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Topwalchainsl_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 160
+        y: 208
+        width: 32
+        height: 32
+      spriteId: f4f536aa175c64da4b25c9eee877692b
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 21
+    uuid:
+      value0: 3046889798
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5 Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 480
+        y: 160
+        width: 32
+        height: 32
+      spriteId: e141accf8f23a4a8080b4c4b0d1fdadc
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 22
+    uuid:
+      value0: 849942140
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Wallconnectorflesh_2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Wallconnectorflesh_2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 384
+        y: 176
+        width: 32
+        height: 32
+      spriteId: ffcb86cb7bebf41b1a891c9832730cf2
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 23
+    uuid:
+      value0: 1978183338
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 24
+    uuid:
+      value0: 1997326971
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 25
+    uuid:
+      value0: 2612414755
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Bottomwall_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Bottomwall_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 224
+        y: 176
+        width: 32
+        height: 32
+      spriteId: c0478965f71e54f36bdb47572a6e8ec5
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 26
+    uuid:
+      value0: 2340903917
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5 Copy Copy Copy_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 176
+        width: 32
+        height: 32
+      spriteId: 23eb8110f28c743ff8d3280e53551a6b
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 27
+    uuid:
+      value0: 2617913106
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 12
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 12
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 432
+        y: 144
+        width: 32
+        height: 32
+      spriteId: b4f343c2d3fb34bf5b626b0d7710639a
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 28
+    uuid:
+      value0: 1937619390
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy Copy_2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5 Copy Copy Copy_2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 352
+        y: 144
+        width: 32
+        height: 32
+      spriteId: 316d0b3aa98764121b6321eda7d7b42c
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 29
+    uuid:
+      value0: 1784769468
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5 Copy Copy Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 352
+        y: 208
+        width: 32
+        height: 32
+      spriteId: 9e1eb8896c3ec48308c456261938a0f4
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 30
+    uuid:
+      value0: 1461205635
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Topwall_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Topwall_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      spriteId: 139ee970be8d943e3890e50ae0391f5f
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 31
+    uuid:
+      value0: 2284717286
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Topwall_1 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Topwall_1 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 224
+        y: 208
+        width: 32
+        height: 32
+      spriteId: d0095d4e629f242eda72139dc8569319
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 32
+    uuid:
+      value0: 292314278
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 16
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 33
+    uuid:
+      value0: 4020951503
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Topwall_1 Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Topwall_1 Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 256
+        width: 53
+        height: 32
+      spriteId: 8adb0dde94a254edebadc742d9804b29
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 34
+    uuid:
+      value0: 20601571
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Topwallflesh_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Topwallflesh_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 192
+        y: 208
+        width: 32
+        height: 33
+      spriteId: d336e6db3f8184e70af5f3283f7b3aa5
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 35
+    uuid:
+      value0: 4084454460
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy Copy Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5 Copy Copy Copy Copy_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 480
+        y: 192
+        width: 32
+        height: 32
+      spriteId: 5bad0e66771bf43809995943b98ef892
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 36
+    uuid:
+      value0: 3583466103
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy Copy Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5 Copy Copy Copy Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 208
+        width: 32
+        height: 32
+      spriteId: 1074932cf98734a1fb690cff5bd60967
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 37
+    uuid:
+      value0: 1253226667
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Wallconnectorflesh_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Wallconnectorflesh_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 384
+        y: 240
+        width: 32
+        height: 32
+      spriteId: d5d3acb13337a4d7f835c706e5406f85
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 38
+    uuid:
+      value0: 4287466681
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 6
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 39
+    uuid:
+      value0: 3900437754
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 6 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 40
+    uuid:
+      value0: 2463381880
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: wallconnector_Right
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: wallconnector_Right
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 480
+        y: 224
+        width: 32
+        height: 32
+      spriteId: 241c79edf315c4c25ae04879e1161e50
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 41
+    uuid:
+      value0: 1050460273
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: wallconnector_Left
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: wallconnector_Left
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 432
+        y: 224
+        width: 32
+        height: 32
+      spriteId: b7edcf0b48c9d4e7c92e75e110a8b2c1
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 42
+    uuid:
+      value0: 2936668581
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 6 Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 6 Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 176
+        width: 32
+        height: 96
+      spriteId: a5a77116058024366b2fea423ea9b04e
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 43
+    uuid:
+      value0: 2976762234
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: WallTopconnectorflesh_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: WallTopconnectorflesh_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 384
+        y: 272
+        width: 32
+        height: 32
+      spriteId: e63a92440e7604d089b3b32033cc5c37
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 44
+    uuid:
+      value0: 3780712520
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 10
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 45
+    uuid:
+      value0: 2214628579
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 11
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 46
+    uuid:
+      value0: 2635850471
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 6 Copy Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 47
+    uuid:
+      value0: 4287466682
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 7
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 7
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 327
+        y: 270
+        width: 16
+        height: 32
+      spriteId: 6d04de1da8ed949d791f3bb4795f72e1
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 48
+    uuid:
+      value0: 167586915
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: WallTop_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: WallTop_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 224
+        y: 240
+        width: 32
+        height: 32
+      spriteId: 706f88518a9804b1d9c0ce6b398f3d14
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 49
+    uuid:
+      value0: 549302027
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: WallTopflesh_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: WallTopflesh_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 192
+        y: 240
+        width: 32
+        height: 32
+      spriteId: b7c088a0ccacc49268418ecdcb574a23
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 50
+    uuid:
+      value0: 2225501596
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 6 Copy Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 6 Copy Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 160
+        y: 240
+        width: 32
+        height: 32
+      spriteId: 38936b6ffa95546d2a9f7a261d9accd8
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 51
+    uuid:
+      value0: 2635850474
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 6 Copy Copy_2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 6 Copy Copy_2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 270
+        width: 32
+        height: 34
+      spriteId: 8b08427cbfcc54301870027bcbf663fa
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 52
+    uuid:
+      value0: 1978183335
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 5 Copy Copy_2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 53
+    uuid:
+      value0: 2525504672
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortilelong_half2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortilelong_half2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 192
+        y: 112
+        width: 32
+        height: 32
+      spriteId: 4dfed46020a18456196b37d7d33a1e4a
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 54
+    uuid:
+      value0: 2799668281
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortilelong_half2 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortilelong_half2 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 192
+        y: 48
+        width: 32
+        height: 32
+      spriteId: 7cb336158c38f4f9e960588ac8c41aad
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 55
+    uuid:
+      value0: 3322534399
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 1 Copy Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1 Copy Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 144
+        width: 33
+        height: 32
+      spriteId: e2d10312285f741cfaa34ee9981fa1b8
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 56
+    uuid:
+      value0: 4287466677
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 111
+        y: 61
+        width: 32
+        height: 32
+      spriteId: c0c280df491b14a27a465db9a95a7a52
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 57
+    uuid:
+      value0: 3900433398
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 2 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 2 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 336
+        y: 112
+        width: 32
+        height: 32
+      spriteId: 4ded115b31d48478f8f42f5f30ed5a4e
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 58
+    uuid:
+      value0: 2771808092
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: SpikeTrap_Closed
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: SpikeTrap_Closed
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 400
+        y: 64
+        width: 32
+        height: 32
+      spriteId: c4f96c8e8cf104956a47114023fcbdec
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 59
+    uuid:
+      value0: 1360187268
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: SpikeTrap_Open
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: SpikeTrap_Open
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 432
+        y: 64
+        width: 32
+        height: 32
+      spriteId: de0edf7c6205d4243b32ff20b4ac83f8
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 60
+    uuid:
+      value0: 4047482536
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 224
+        y: 112
+        width: 32
+        height: 32
+      spriteId: 28a7afd70f8fd405b95de624a665bc90
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 61
+    uuid:
+      value0: 3412006275
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_1 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_1 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 288
+        y: 112
+        width: 32
+        height: 32
+      spriteId: 09f78f2050ba944f19720ebf9f7bca02
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 62
+    uuid:
+      value0: 2943480077
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortile_1 Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortile_1 Copy_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 224
+        y: 48
+        width: 32
+        height: 32
+      spriteId: 839a1325bdb264bf491cee7174482d26
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 63
+    uuid:
+      value0: 2171995396
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortileshadow_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortileshadow_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 288
+        y: 176
+        width: 32
+        height: 32
+      spriteId: 2b8eadaee56fc4c988368f34b430f1a2
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 64
+    uuid:
+      value0: 1970957853
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortileshadow_1 Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortileshadow_1 Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 288
+        y: 240
+        width: 32
+        height: 32
+      spriteId: a9f7a3de2488d425680b365cd688ede8
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 65
+    uuid:
+      value0: 2895644443
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Floortileshadow_1 Copy_1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floortileshadow_1 Copy_1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 352
+        y: 176
+        width: 32
+        height: 32
+      spriteId: a7502b6b8526d4f7098dfcb9062d423a
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 66
+    uuid:
+      value0: 2780127273
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 2 Copy Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 2 Copy Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 432
+        y: 256
+        width: 32
+        height: 32
+      spriteId: e0469ce5a0f3544659608f3e3f74cecc
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 67
+    uuid:
+      value0: 4287466678
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: -5
+        width: 32
+        height: 197
+      spriteId: 90eb0cafb6dab40b8bf9344aca42c7b7
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 68
+    uuid:
+      value0: 4287466683
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 4
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 69
+    uuid:
+      value0: 1455113692
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 14
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 14
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      spriteId: 5e4c76b3eb21d446280b915a24542092
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 71
+    uuid:
+      value0: 1502599537
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Box
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Box
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 96
+        width: 32
+        height: 48
+      spriteId: 0f6805db617694937adb2ec8fbf3d3ca
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 72
+    uuid:
+      value0: 3021197633
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Layer 17
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  tileSets: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 640, y: 320}
+  previousTextureSize: {x: 512, y: 256}
